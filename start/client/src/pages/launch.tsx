@@ -30,10 +30,10 @@ const Launch: React.FC<LaunchProps> = ({ launchId }) => {
     loading,
     error,
   } = useQuery<
-    LaunchDetailsTypes.LaunchDetails,
-    LaunchDetailsTypes.LaunchDetailsVariables
-  >(GET_LAUNCH_DETAILS,
-    { variables: { launchId } }
+      LaunchDetailsTypes.LaunchDetails,
+      LaunchDetailsTypes.LaunchDetailsVariables
+      >(GET_LAUNCH_DETAILS,
+      { variables: { launchId } }
   );
 
   if (loading) return <Loading />;
@@ -41,13 +41,13 @@ const Launch: React.FC<LaunchProps> = ({ launchId }) => {
   if (!data) return <p>Not found</p>;
 
   return (
-    <Fragment>
-      <Header image={data.launch && data.launch.mission && data.launch.mission.missionPatch}>
-        {data && data.launch && data.launch.mission && data.launch.mission.name}
-      </Header>
-      <LaunchDetail {...data.launch} />
-      <ActionButton {...data.launch} />
-    </Fragment>
+      <Fragment>
+        <Header image={data.launch && data.launch.mission && data.launch.mission.missionPatch}>
+          {data && data.launch && data.launch.mission && data.launch.mission.name}
+        </Header>
+        <LaunchDetail {...data.launch} />
+        <ActionButton {...data.launch} />
+      </Fragment>
   );
 }
 
